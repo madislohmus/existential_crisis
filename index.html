@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+{{ range .cards }}
+<div class="card">
+    <div class="time-circle">
+      <div class="time-value">
+        {{ .Self.Time }}
+      </div>
+    </div>
+    <div class="text1">
+      {{ .Description }}
+    </div>
+    <div class="stats-container">
+      <div class="small-text">
+        YOU
+      </div>
+      <div class="stats">
+        {{if .Self.Money }}
+		<div class="wealth stat">
+          {{ .Self.Money }} Wealth
+        </div>
+		{{ end }}
+		{{if .Self.Health}}
+		<div class="health stat">
+          {{ .Self.Health }} Health
+        </div>
+		{{ end }}
+        {{if .Self.Social}}
+		<div class="social stat">
+          {{ .Self.Social }} Social
+        </div>
+		{{end}}
+      </div>
+    </div>
+    <div class="stats-container">
+      <div class="small-text">
+        SOMEONE
+      </div>
+      <div class="stats">
+		{{if .Friend.Money }}
+		<div class="wealth stat">
+          {{ .Friend.Money }} Wealth
+        </div>
+		{{ end }}
+		{{if .Friend.Health}}
+		<div class="health stat">
+          {{ .Friend.Health }} Health
+        </div>
+		{{ end }}
+        {{if .Friend.Social}}
+		<div class="social stat">
+          {{ .Friend.Social }} Social
+        </div>
+		{{end}}
+      </div>
+    </div>
+    <div class="stats-container">
+      <div class="small-text">
+        THEM
+      </div>
+      <div class="stats">
+        {{if .All.Money }}
+		<div class="wealth stat">
+          {{ .All.Money }} Wealth
+        </div>
+		{{ end }}
+		{{if .All.Health}}
+		<div class="health stat">
+          {{ .All.Health }} Health
+        </div>
+		{{ end }}
+        {{if .All.Social}}
+		<div class="social stat">
+          {{ .All.Social }} Social
+        </div>
+		{{end}}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</body>
+</html>
